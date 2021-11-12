@@ -40,6 +40,10 @@ const MainContent = styled.div`
 const PageTitle = styled.h1`
   color: ${(props) => props.theme.colors.primary};
   font-family: 'Russo One', sans-serif;
+
+  @media (min-width: 320px) and (max-width: 420px) {
+    font-size: 16px;
+  }
 `;
 
 export default {

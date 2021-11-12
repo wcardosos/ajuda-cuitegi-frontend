@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Form from '../components/Form';
 import Header from '../components/Header';
+import Image from '../components/Image';
 import styles from '../styles/pages/cadastrar';
 
-import CareImageDesktop from '../assets/care-desktop.svg';
-import CareImageMobile from '../assets/care-mobile.svg';
+const careImage = '../assets/care.png';
 
 const {
   ContentSection,
@@ -15,38 +15,28 @@ const {
   PageTitle,
 } = styles;
 
-const CreateHelp: React.FC = () => {
-  const [isMobileView, setIsMobileView] = useState(false);
+const CreateHelp: React.FC = () => (
+  <>
+    <Head>
+      <title>Ajuda Cuitegi</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-  useEffect(() => {
-    if (window.innerWidth < 420) {
-      setIsMobileView(true);
-    }
-  }, []);
+    <Header />
 
-  return (
-    <>
-      <Head>
-        <title>Ajuda Cuitegi</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header />
-
-      <MainContainer>
-        <PageTitle>Cadastro de Ajuda</PageTitle>
-        <MainContent>
-          <ContentSection>
-            <Form />
-            <InstagramDiv>@ajudacuitegi</InstagramDiv>
-          </ContentSection>
-          <ContentSection>
-            { isMobileView ? <CareImageMobile /> : <CareImageDesktop /> }
-          </ContentSection>
-        </MainContent>
-      </MainContainer>
-    </>
-  );
-};
+    <MainContainer>
+      <PageTitle>Cadastro de Ajuda</PageTitle>
+      <MainContent>
+        <ContentSection>
+          <Form />
+          <InstagramDiv>@ajudacuitegi</InstagramDiv>
+        </ContentSection>
+        <ContentSection>
+          <Image source={careImage} alternativeText="Ajuda às pessoas" widthPercentual={100} />
+        </ContentSection>
+      </MainContent>
+    </MainContainer>
+  </>
+);
 
 export default CreateHelp;
