@@ -6,6 +6,9 @@ const {
   Input,
   InputContainer,
   SubmitButton,
+  SubmitButtonContainer,
+  TextAreaContainer,
+  TextArea,
 } = styles;
 
 const Form: React.FC = () => {
@@ -62,6 +65,7 @@ const Form: React.FC = () => {
           name="number"
           value={name}
           onChange={onChangeName}
+          width="10%"
         />
       </InputContainer>
       <InputContainer>
@@ -80,19 +84,21 @@ const Form: React.FC = () => {
           onChange={onChangeName}
         />
       </InputContainer>
-      <InputContainer>
+      <TextAreaContainer>
         <label htmlFor="description">Descrição:</label>
-        <Input
+        <TextArea
           name="description"
           value={name}
           onChange={onChangeName}
         />
-      </InputContainer>
-      <SubmitButton
-        type="submit"
-        value="Cadastrar"
-        onClick={onSubmit}
-      />
+      </TextAreaContainer>
+      <SubmitButtonContainer>
+        <SubmitButton
+          type="submit"
+          value="Cadastrar"
+          onClick={onSubmit}
+        />
+      </SubmitButtonContainer>
     </FormContainer>
   );
 };

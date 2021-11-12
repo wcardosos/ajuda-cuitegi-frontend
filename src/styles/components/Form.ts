@@ -10,15 +10,29 @@ const FormContainer = styled.form`
 `;
 
 const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 80%;
   height: 10vh;
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: ${(props) => props.width || '100%'};
   height: 50%;
   border: 1px solid ${(props) => props.theme.colors.secondary};
   border-radius: 5px;
+  padding: 0 10px;
+
+  @media (min-width: 320px) and (max-width: 420px) {
+    padding: 0 5px;
+  }
+`;
+
+const SubmitButtonContainer = styled(InputContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
 `;
 
 const SubmitButton = styled.input`
@@ -42,9 +56,24 @@ const SubmitButton = styled.input`
   }
 `;
 
+const TextAreaContainer = styled(InputContainer)`
+  height: 30vh;
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  height: 80%;
+  border: 1px solid ${(props) => props.theme.colors.secondary};
+  border-radius: 5px;
+  resize: none;
+`;
+
 export default {
   FormContainer,
   Input,
   InputContainer,
   SubmitButton,
+  SubmitButtonContainer,
+  TextArea,
+  TextAreaContainer,
 };
